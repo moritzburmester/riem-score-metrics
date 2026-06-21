@@ -1,0 +1,10 @@
+{
+  "topology": "two_moons",
+  "gt_available": false,
+  "center_pre": [
+    0.4999656677246094,
+    0.2501283586025238
+  ],
+  "scale_pre": 0.7072317600260244,
+  "noise": 0.05
+}

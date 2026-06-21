@@ -1,0 +1,24 @@
+{
+  "topology": "semicircle_weighted",
+  "theta_range": [
+    0.0,
+    3.141592653589793
+  ],
+  "center_pre": [
+    -0.03342355787754059,
+    6.369467735290527
+  ],
+  "scale_pre": 3.577197551728295,
+  "radius_pre": 8.0,
+  "n_components": 200,
+  "noise": 1.0,
+  "geom_center_pre": [
+    0.0,
+    0.0
+  ],
+  "center_post": [
+    0.009343503509162432,
+    -1.780574777653297
+  ],
+  "radius_post": 2.236387530829787
+}

@@ -1,0 +1,18 @@
+{
+  "sde": "vesde",
+  "sigma_min": 0.01,
+  "sigma_max": 5.0,
+  "beta_min": 0.1,
+  "beta_max": 20.0,
+  "ambient_dim": 2,
+  "hidden_layers": 4,
+  "hidden_nodes": 128,
+  "model_name": "fcn",
+  "epochs": 1000,
+  "batch_size": 128,
+  "lr": 0.001,
+  "likelihood_weighting": true,
+  "continuous": true,
+  "log_path": "/home/moritz.burmester/riemannian-score-metrics/experiments/score_model_logs",
+  "log_name": "wcg"
+}
