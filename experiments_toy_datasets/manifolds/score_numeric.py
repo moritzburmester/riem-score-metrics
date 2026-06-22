@@ -4,16 +4,16 @@ import torch
 from torch.func import jacrev, vmap
 
 
+## https://docs.pytorch.org/functorch/stable/generated/functorch.jacrev.html
 def score_jacobian(score_fn: Callable, x: torch.Tensor, t: torch.Tensor):
     def s_one(xi, ti):
         return score_fn(xi.unsqueeze(0), ti.unsqueeze(0)).squeeze(0)
     return vmap(jacrev(s_one, argnums=0))(x, t)
 
-
+## neural network jacobian not necessarily symmetric, symmetrize for toy metrics (maybe not needed)
 def score_jacobian_symmetric(score_fn: Callable, x: torch.Tensor, t: torch.Tensor):
     J = score_jacobian(score_fn, x, t)
     return 0.5 * (J + J.transpose(-1, -2))
-
 
 class DiffusionDeriv:
     def __init__(self, score_fn, t: float):

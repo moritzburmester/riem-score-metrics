@@ -40,13 +40,13 @@ def graph_init_curve(manifold, data_np, z0, z1, n_points,
 
     with torch.no_grad():
         # compute all edge curves
-        edge_curve = source_vertex_coords[:, None, :] + s_u[None, :, None] * diff[:, None, :] # num_edges, num_points_edge, D
+        edge_curve = source_vertex_coords[:, None, :] + s_u[None, :, None] * diff[:, None, :].to(device) # num_edges, num_points_edge, D
         num_edges, num_points_edge, _ = edge_curve.shape
         # evaluate metric along each edge point for each edge 
         G = manifold.metric(edge_curve.reshape(-1, D)).reshape(num_edges, num_points_edge, D, D)
-        df_b = diff[:, None, :].expand(num_edges, num_points_edge, D) # num_edges, num_points_edge, D
+        df_b = diff[:, None, :].expand(num_edges, num_points_edge, D).to(device) # num_edges, num_points_edge, D
         # local metric length 
-        seg_sqrt = torch.sqrt(torch.einsum('bti,btij,btj->bt', df_b, G, df_b).clamp(min=0)) # num_edges, num_points_edge
+        seg_sqrt = torch.sqrt(torch.einsum('bti,btij,btj->bt', df_b, G, df_b).clamp(min=0)).to(device) # num_edges, num_points_edge
         # Riemannian length for each edge
         w = (seg_sqrt.sum(dim=1) * du).cpu().numpy()
 
@@ -62,6 +62,7 @@ def graph_init_curve(manifold, data_np, z0, z1, n_points,
     while current != qa:
         current = int(preds[current])
         if current < 0:
+            print("graph init error flag")
             break
         path.append(current)
     path.reverse()
@@ -74,7 +75,7 @@ def graph_init_curve(manifold, data_np, z0, z1, n_points,
     s /= max(s[-1], 1e-12) # scale to 0, 1
     s_new = np.linspace(0, 1, n_points)
     out = np.stack([np.interp(s_new, s, p_ab[:, d]) for d in range(D)], axis=-1)
-    return torch.tensor(out, dtype=torch.float32) # return new initial curve and feed to discrete_geodesic 
+    return torch.tensor(out, dtype=torch.float32, device=device) # return new initial curve and feed to discrete_geodesic 
 
 
 

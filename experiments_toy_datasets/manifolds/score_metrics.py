@@ -5,7 +5,7 @@ from .score_analytic import AnalyticDeriv
 _G_T_H = None
 _G_T_s = None
 
-def freeze_G(deriv, reference_points, *, noise_scale=None, n_noisy=1,
+def normalize_G(deriv, reference_points, *, noise_scale=None, n_noisy=1,
               include_clean=True):
     global _G_T_H, _G_T_s
     with torch.no_grad():
@@ -37,14 +37,14 @@ def freeze_G(deriv, reference_points, *, noise_scale=None, n_noisy=1,
 def _G(points, deriv, lam=0.1, normalize=True):
 
     H = deriv.hessian(points)
-    HtH = H @ H.transpose(-1, -2)
+    HtH = H @ H.transpose(-1, -2) # HHT or HtH (since its symmetric)
     sn2 = deriv.score(points).pow(2).sum(-1)
     N, D = points.shape
     I = _eye(N, D, points.device, points.dtype)
 
     if normalize:
         if _G_T_H is None or _G_T_s is None:
-            raise RuntimeError("call freeze_G(deriv, reference_points) before normalized _G")
+            raise RuntimeError("call normalize_G(deriv, reference_points) before _G")
         T_H, T_s = _G_T_H, _G_T_s
     else:
         T_H = T_s = 1.0
@@ -60,7 +60,7 @@ def _G_quad(points, v, deriv, lam=0.1, normalize=True):
 
     if normalize:
         if _G_T_H is None or _G_T_s is None:
-            raise RuntimeError("call freeze_G(deriv, reference_points) before normalized _G")
+            raise RuntimeError("call normalize_G(deriv, reference_points) before _G_quad")
         T_H, T_s = _G_T_H, _G_T_s
     else:
         T_H = T_s = 1.0

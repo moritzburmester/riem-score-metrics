@@ -1,0 +1,20 @@
+{
+  "experiment": "train_ebm_models",
+  "dataset": "spiral",
+  "timestamp": "2026-05-28T02:08:38",
+  "wall_time_s": 409.8344659805298,
+  "gpu": "Tesla P100-PCIE-16GB",
+  "pytorch_version": "2.1.1+cu121",
+  "cuda_available": true,
+  "extra": {
+    "iters": 30000,
+    "batch_size": 1024,
+    "lr": 0.001,
+    "sigma_min": 0.01,
+    "sigma_max": 2.0,
+    "hidden": 32,
+    "n_layers": 6,
+    "D": 2,
+    "final_loss": 147.23756408691406
+  }
+}

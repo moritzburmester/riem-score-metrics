@@ -1,0 +1,23 @@
+{
+  "experiment": "score_models",
+  "dataset": "wcg",
+  "timestamp": "2026-05-28T11:30:29",
+  "wall_time_s": 2902.095419406891,
+  "gpu": "Tesla P100-PCIE-16GB",
+  "pytorch_version": "2.1.1+cu121",
+  "cuda_available": true,
+  "cfg": {
+    "sde": "vesde",
+    "sigma_min": 0.01,
+    "sigma_max": 5.0,
+    "epochs": 1000,
+    "batch_size": 128,
+    "lr": 0.001,
+    "hidden_layers": 4,
+    "hidden_nodes": 128,
+    "ambient_dim": 2,
+    "likelihood_weighting": true,
+    "continuous": true,
+    "seed": 12
+  }
+}
