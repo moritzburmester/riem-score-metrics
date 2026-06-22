@@ -15,8 +15,80 @@ This repository contains the code necessary to reproduce the experiments from my
 ├── requirements.txt
 └── README.md
 ```
-## Example Geodesics for different Datasets 
-### Toy Datasets 
-### 
+## Example Geodesics
+
+### 1) Toy Datasets
+
+![Off-manifold geodesics under the learned metric](assets/off_manifold_graph_learned.png)
+
+### 2) URC (Uniform Rotated Characters)
+
+<table>
+  <tr>
+    <td align="right" width="120"><b>LERP</b></td>
+    <td><img src="assets/LERP_g18.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>SLERP</b></td>
+    <td><img src="assets/SLERP_g18.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>λ = 0</b></td>
+    <td><img src="assets/lam0_g18.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>λ = 0.1</b></td>
+    <td><img src="assets/lam0.1_g18.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>λ = 1</b></td>
+    <td><img src="assets/lam1_g18.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>LAND</b></td>
+    <td><img src="assets/LAND_g18.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>RBF</b></td>
+    <td><img src="assets/RBF_g18.png" width="560"></td>
+  </tr>
+</table>
+
+### 3) MorphBench (M) in Stable Diffusion v2.1-base 
+
+<table>
+  <tr>
+    <td align="right" width="120"><b>LERP</b></td>
+    <td><img src="assets/mbm_wolf_tiger_lerp_strip.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>SLERP</b></td>
+    <td><img src="assets/mbm_wolf_tiger_slerp_strip.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>λ = 0</b></td>
+    <td><img src="assets/mbm_wolf_tiger_lam00_it500_strip.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>λ = 0.1</b></td>
+    <td><img src="assets/mbm_wolf_tiger_lam01_it500_strip.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>λ = 0.25</b></td>
+    <td><img src="assets/mbm_wolf_tiger_lam025_it500_strip.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>λ = 0.5</b></td>
+    <td><img src="assets/mbm_wolf_tiger_lam05_it500_strip.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>λ = 0.75</b></td>
+    <td><img src="assets/mbm_wolf_tiger_lam075_it500_strip.png" width="560"></td>
+  </tr>
+  <tr>
+    <td align="right"><b>λ = 1</b></td>
+    <td><img src="assets/mbm_wolf_tiger_lam10_it500_strip.png" width="560"></td>
+  </tr>
+</table>
 
 
