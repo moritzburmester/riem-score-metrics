@@ -6,6 +6,7 @@ This repository contains the code necessary to reproduce the experiments from my
 
 ## Repository Structure 
 ```
+├── assets 
 ├── diffusion_model_dependencies/   # scripts and modules to train, evaluate, and sample from score-based diffusion models
 ├── experiments_toy_datasets/       # geodesics under different metrics for the toy datasets (circle, s-curve, swiss-roll/spiral, ucg, wcg, two moons)
 ├── experiments_urc/                # geodesics on the uniform rotated characters (URC) dataset
