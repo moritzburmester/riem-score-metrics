@@ -17,11 +17,7 @@ This repository contains the code necessary to reproduce the experiments from my
 ```
 ## Example Geodesics
 
-### 1) Toy Datasets
-
-![Off-manifold geodesics under the learned metric](assets/off_manifold_graph_learned.png)
-
-### 2) URC (Uniform Rotated Characters)
+### URC (Uniform Rotated Characters)
 
 <table>
   <tr>
@@ -54,7 +50,7 @@ This repository contains the code necessary to reproduce the experiments from my
   </tr>
 </table>
 
-### 3) MorphBench (M) in Stable Diffusion v2.1-base 
+### MorphBench (M) in Stable Diffusion v2.1-base 
 
 <table>
   <tr>
