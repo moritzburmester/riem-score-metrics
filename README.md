@@ -20,6 +20,8 @@ Checkpoints for each model and geodesics saved as .pt files can be found in the 
 ```
 ## Usage
 ```bash
+git clone https://github.com/moritzburmester/riem-score-metrics.git
+cd riem-score-metrics
 conda create --name score-metrics --file requirements.txt
 ```
 ## Example Geodesics
