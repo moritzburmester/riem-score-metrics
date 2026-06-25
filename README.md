@@ -19,11 +19,9 @@ Checkpoints for each model and geodesics saved as .pt files can be found in the 
 └── README.md
 ```
 ## Usage
-
 ```bash
-# $ conda create --name score-metrics --file requirements.txt
+conda create --name score-metrics --file requirements.txt
 ```
-
 ## Example Geodesics
 
 ### URC (Uniform Rotated Characters)
